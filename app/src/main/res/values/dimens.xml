@@ -1,0 +1,35 @@
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="side_margin_start">16dp</dimen>
+    <dimen name="side_margin_end">20dp</dimen>
+
+    <dimen name="libraryFragment_top_margin_title">24dp</dimen>
+    <dimen name="libraryFragment_margin_between_items">8dp</dimen>
+    <dimen name="libraryFragment_margin_small">4dp</dimen>
+
+    <dimen name="libraryFragment_textSize_title">32sp</dimen>
+    <dimen name="libraryFragment_textSize_collectionName">16sp</dimen>
+    <dimen name="libraryFragment_textSize_itemsCount">12sp</dimen>
+
+    <dimen name="libraryFragment_divider_height">1dp</dimen>
+    <dimen name="libraryFragment_divider_marginTop">6dp</dimen>
+
+    <dimen name="libraryFragment_guideline_top_percent">0.15</dimen>
+    <dimen name="libraryFragment_guideline_bottom_percent">0.5</dimen>
+
+    <dimen name="libraryFragment_collection_iconToText_marginStart">12dp</dimen>
+    <dimen name="libraryFragment_collection_textToCount_marginTop">6dp</dimen>
+    <dimen name="libraryFragment_collection_betweenItems_marginTop">12dp</dimen>
+
+    <dimen name="image_settings_size">28dp</dimen>
+
+    <dimen name="settingsFragment_textSize_title">24sp</dimen>
+
+    <dimen name="settingsFragment_stroke_width">2dp</dimen>
+    <dimen name="settingsFragment_corner_radius">6dp</dimen>
+    <dimen name="settingsFragment_iconSize_button">16dp</dimen>
+    <dimen name="settingsFragment_textSize_button">16dp</dimen>
+    <dimen name="settingsFragment_button_padding">12dp</dimen>
+</resources>
