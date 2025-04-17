@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="@string/search"
+        android:icon="@drawable/bottom_nav_search_img"
+        android:id="@+id/searchFragment"
+
+        />
+    <item
+        android:title="@string/library"
+        android:icon="@drawable/library_fragment_saved_img"
+        android:id="@+id/libraryFragment"
+        />
+    <item
+        android:title="@string/settings"
+        android:icon="@drawable/bottom_nav_menu_img"
+        android:id="@+id/settingsFragment"
+        />
+</menu>

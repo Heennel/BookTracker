@@ -194,8 +194,8 @@
 
     <TextView
         android:id="@+id/libraryFragmentEmptyLibraryMessage"
+        style="@style/PlaceHolderLibraryStyle"
         android:layout_width="wrap_content"
-        android:gravity="center"
         android:layout_height="wrap_content"
         android:text="@string/library_empty"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -203,26 +203,20 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/leftBoarder"
         app:layout_constraintTop_toTopOf="@+id/libraryFragmentBottomBoardOfCollections"
-        app:layout_constraintVertical_bias="0.25"
-        android:textSize="24sp"
-        android:fontFamily="@font/opensans_regular"
-        />
+        app:layout_constraintVertical_bias="0.25"/>
 
     <TextView
         android:id="@+id/libraryFragmentTryToFindMessage"
+        style="@style/PlaceHolderLibraryStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginHorizontal="54dp"
+        android:layout_marginHorizontal="@dimen/library_placeholdertext_margin_horizontal"
+        android:layout_marginTop="@dimen/library_placeholdertext_margin_top"
         android:text="@string/try_to_find"
         app:layout_constraintEnd_toStartOf="@+id/rightBoarder"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/leftBoarder"
-        app:layout_constraintTop_toBottomOf="@+id/libraryFragmentEmptyLibraryMessage"
-        android:textSize="24sp"
-        android:gravity="center"
-        android:fontFamily="@font/opensans_regular"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/libraryFragmentEmptyLibraryMessage"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,84 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.BookTracker" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/appBlack</item>
+    </style>
+    <style name="LibraryCollectionText">
+        <item name="android:textSize">@dimen/libraryFragment_textSize_collectionName</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="LibraryCollectionCount">
+        <item name="android:textSize">@dimen/libraryFragment_textSize_itemsCount</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="LibraryTitle">
+        <item name="android:textSize">@dimen/libraryFragment_textSize_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/opensans_bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="LibraryCollectionIcon">
+        <item name="android:tint">@color/white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="LibraryRightArrow">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:tint">@color/white</item>
+    </style>
+
+    <style name="LibraryDivider">
+        <item name="android:layout_height">@dimen/libraryFragment_divider_height</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="SettingsButtonStyle">
+        <item name="strokeWidth">@dimen/settingsFragment_stroke_width</item>
+        <item name="strokeColor">@color/white</item>
+        <item name="cornerRadius">@dimen/settingsFragment_corner_radius</item>
+        <item name="android:backgroundTint">@color/appBlack</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="iconTint">@color/white</item>
+        <item name="iconSize">@dimen/settingsFragment_iconSize_button</item>
+        <item name="iconGravity">textStart</item>
+        <item name="android:textSize">@dimen/settingsFragment_textSize_button</item>
+        <item name="android:padding">@dimen/settingsFragment_button_padding</item>
+    </style>
+
+    <style name="SettingsSwitchMaterial">
+        <item name="thumbTint">@color/lessLightBlue</item>
+        <item name="trackTint">@color/lightBlue</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:textSize">@dimen/settingsFragment_textSize_button</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="SettingsTitleStyle">
+        <item name="android:textSize">@dimen/settingsFragment_textSize_title</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/opensans_bold</item>
+    </style>
+    <style name="BottomNavStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/appBlack</item>
+        <item name="itemIconTint">@color/menuitem_color_dark</item>
+    </style>
+    <style name="PlaceHolderLibraryStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/library_placeholdertext_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+    </style>
+
+    <style name="SearchPlaceholderTextStyle">
+        <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/search_placeholder_text_size</item>
     </style>
 </resources>

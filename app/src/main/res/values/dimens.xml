@@ -23,6 +23,10 @@
     <dimen name="libraryFragment_collection_textToCount_marginTop">6dp</dimen>
     <dimen name="libraryFragment_collection_betweenItems_marginTop">12dp</dimen>
 
+    <dimen name="library_placeholdertext_size">24sp</dimen>
+    <dimen name="library_placeholdertext_margin_horizontal">54dp</dimen>
+    <dimen name="library_placeholdertext_margin_top">12dp</dimen>
+
     <dimen name="image_settings_size">28dp</dimen>
 
     <dimen name="settingsFragment_textSize_title">24sp</dimen>
@@ -32,4 +36,16 @@
     <dimen name="settingsFragment_iconSize_button">16dp</dimen>
     <dimen name="settingsFragment_textSize_button">16dp</dimen>
     <dimen name="settingsFragment_button_padding">12dp</dimen>
+
+    <dimen name="search_top_margin">24dp</dimen>
+    <dimen name="search_text_top_margin">48dp</dimen>
+    <dimen name="search_edittext_padding_vertical">10dp</dimen>
+    <dimen name="search_edittext_padding_horizontal">12dp</dimen>
+    <dimen name="search_edittext_padding_end">36dp</dimen>
+    <dimen name="search_icon_padding">8dp</dimen>
+    <dimen name="search_clear_icon_margin">10dp</dimen>
+
+    <dimen name="search_edittext_text_size">16sp</dimen>
+    <dimen name="search_placeholder_text_size">18sp</dimen>
+
 </resources>

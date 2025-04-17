@@ -12,6 +12,10 @@
     <string name="switchTheme">Светлая/Темная тема</string>
     <string name="share_app">Поделиться приложением</string>
     <string name="email_write">Напишите нам</string>
+    <string name="search">Поиск</string>
+    <string name="email_adress">paramo93@bk.ru</string>
+    <string name="share_text">Приложение-библиотека</string>
+    <string name="share_subject">О да!</string>
 
 
     <string name="collection_description_save">collection_description_save</string>
@@ -20,4 +24,6 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="clear_img">clear_img</string>
+    <string name="search_startPlaceholder">Найдите то, что вам понравится</string>
 </resources>

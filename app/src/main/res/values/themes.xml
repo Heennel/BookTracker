@@ -1,25 +1,26 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Base.Theme.BookTracker" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
     </style>
     <style name="Theme.BookTracker" parent="Base.Theme.BookTracker" />
 
     <style name="LibraryCollectionText">
         <item name="android:textSize">@dimen/libraryFragment_textSize_collectionName</item>
         <item name="android:fontFamily">@font/opensans_regular</item>
-        <item name="android:textColor">@color/black_text</item>
+        <item name="android:textColor">@color/appBlack</item>
     </style>
 
     <style name="LibraryCollectionCount">
         <item name="android:textSize">@dimen/libraryFragment_textSize_itemsCount</item>
         <item name="android:fontFamily">@font/opensans_regular</item>
-        <item name="android:textColor">@color/grayText</item>
+        <item name="android:textColor">@color/gray</item>
     </style>
 
     <style name="LibraryTitle">
         <item name="android:textSize">@dimen/libraryFragment_textSize_title</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">@font/opensans_bold</item>
-        <item name="android:textColor">@color/black_text</item>
+        <item name="android:textColor">@color/appBlack</item>
     </style>
 
     <style name="LibraryCollectionIcon">
@@ -36,17 +37,17 @@
 
     <style name="LibraryDivider">
         <item name="android:layout_height">@dimen/libraryFragment_divider_height</item>
-        <item name="android:background">@color/gray</item>
+        <item name="android:background">@color/darkGray</item>
     </style>
 
     <style name="SettingsButtonStyle">
         <item name="strokeWidth">@dimen/settingsFragment_stroke_width</item>
-        <item name="strokeColor">@color/black_text</item>
+        <item name="strokeColor">@color/appBlack</item>
         <item name="cornerRadius">@dimen/settingsFragment_corner_radius</item>
         <item name="android:backgroundTint">@color/white</item>
-        <item name="android:textColor">@color/black_text</item>
+        <item name="android:textColor">@color/appBlack</item>
         <item name="android:fontFamily">@font/opensans_regular</item>
-        <item name="iconTint">@color/black_text</item>
+        <item name="iconTint">@color/appBlack</item>
         <item name="iconSize">@dimen/settingsFragment_iconSize_button</item>
         <item name="iconGravity">textStart</item>
         <item name="android:textSize">@dimen/settingsFragment_textSize_button</item>
@@ -54,14 +55,49 @@
     </style>
 
     <style name="SettingsSwitchMaterial">
-        <item name="thumbTint">@color/grayText</item>
-        <item name="trackTint">@color/gray</item>
+        <item name="thumbTint">@color/gray</item>
+        <item name="trackTint">@color/darkGray</item>
         <item name="android:fontFamily">@font/opensans_regular</item>
         <item name="android:textSize">@dimen/settingsFragment_textSize_button</item>
+        <item name="android:textColor">@color/appBlack</item>
     </style>
     <style name="SettingsTitleStyle">
         <item name="android:textSize">@dimen/settingsFragment_textSize_title</item>
-        <item name="android:textColor">@color/black_text</item>
+        <item name="android:textColor">@color/appBlack</item>
         <item name="android:fontFamily">@font/opensans_bold</item>
+    </style>
+    <style name="BottomNavStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/white</item>
+        <item name="itemIconTint">@color/menuitem_color_light</item>
+    </style>
+    <style name="PlaceHolderLibraryStyle">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/library_placeholdertext_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+    </style>
+
+    <style name="SearchEditTextStyle">
+        <item name="android:background">@drawable/search_background_light</item>
+        <item name="android:drawablePadding">@dimen/search_icon_padding</item>
+        <item name="android:fontFamily">@font/archivo_regular</item>
+        <item name="android:inputType">textCapWords</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingVertical">@dimen/search_edittext_padding_vertical</item>
+        <item name="android:paddingStart">@dimen/search_edittext_padding_horizontal</item>
+        <item name="android:paddingEnd">@dimen/search_edittext_padding_end</item>
+        <item name="android:textColor">@color/appBlack</item>
+        <item name="android:textSize">@dimen/search_edittext_text_size</item>
+    </style>
+
+    <style name="SearchPlaceholderTextStyle">
+        <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:textColor">@color/appBlack</item>
+        <item name="android:textSize">@dimen/search_placeholder_text_size</item>
+    </style>
+
+    <style name="SearchClearIconStyle">
+        <item name="android:layout_margin">@dimen/search_clear_icon_margin</item>
+        <item name="tint">@color/gray</item>
     </style>
 </resources>
