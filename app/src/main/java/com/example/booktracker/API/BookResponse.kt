@@ -1,7 +1,8 @@
 package com.example.booktracker.APIЫ
 
-import com.example.booktracker.API.VolumeInfo
+import com.example.booktracker.API.BookItem
+import com.google.gson.annotations.SerializedName
 
 class BookResponse(
-    val items: List<VolumeInfo>
+    @SerializedName("items") val items: List<BookItem>?
 )

@@ -11,7 +11,6 @@ import android.view.inputmethod.EditorInfo
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.booktracker.API.GoogleBooksApi
 import com.example.booktracker.API.RetrofitFactory
-import com.example.booktracker.API.VolumeInfo
 import com.example.booktracker.APIЫ.BookResponse
 import com.example.booktracker.RecyclerView.BookAdapter
 import com.example.booktracker.databinding.FragmentSearchBinding
@@ -78,22 +77,19 @@ class SearchFragment : Fragment() {
     }
 
     private fun getBooks(){
-        if(binding.fragmentSearchEditText.text.isNotEmpty()){
-            bookApiService.getBooks(binding.fragmentSearchEditText.text.toString()).enqueue(object : Callback<BookResponse>{
+        val query = binding.fragmentSearchEditText.text
+        if(!query.isNullOrEmpty()){
+            bookApiService.getBooks(query.toString()).enqueue(object : Callback<BookResponse>{
                 override fun onResponse(call: Call<BookResponse>, response: Response<BookResponse>) {
                     if (response.isSuccessful){
                         val responseList = response.body()?.items
-                        if (!responseList.isNullOrEmpty()) {
-                            bookAdapter.bookList.addAll(responseList)
-                            bookAdapter.notifyDataSetChanged()
-                        }
+                        val books = responseList?.map { it.bookItem } ?: emptyList()
+                        bookAdapter.refreshList(books)
                     }
                 }
-
                 override fun onFailure(p0: Call<BookResponse>, p1: Throwable) {
-                    binding.fragmentSearchEditText.setText("пизда)")
+                    binding.fragmentSearchEditText.setText("")
                 }
-
             })
         }
     }

@@ -39,6 +39,9 @@ android {
 }
 
 dependencies {
+    implementation (libs.material.v161)
+    implementation(libs.glide)
+    annotationProcessor (libs.compiler)
     implementation(libs.androidx.navigation.fragment.ktx.v289)
     implementation(libs.androidx.navigation.ui.ktx.v253)
     implementation(libs.androidx.fragment.ktx)

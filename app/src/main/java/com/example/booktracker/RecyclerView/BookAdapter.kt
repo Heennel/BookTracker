@@ -4,13 +4,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.booktracker.API.Book
-import com.example.booktracker.API.VolumeInfo
-import com.example.booktracker.R
+import com.example.booktracker.API.BookItem
 import com.example.booktracker.databinding.BookItemBinding
 
 class BookAdapter: RecyclerView.Adapter<BookHolder>() {
 
-    var bookList = ArrayList<VolumeInfo>()
+    var bookList = mutableListOf<Book>()
+
+    fun refreshList(newBooks: List<Book>) {
+        bookList.clear()
+        bookList.addAll(newBooks)
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookHolder {
         val binding = BookItemBinding.inflate(
