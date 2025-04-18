@@ -26,4 +26,6 @@
     <string name="title_notifications">Notifications</string>
     <string name="clear_img">clear_img</string>
     <string name="search_startPlaceholder">Найдите то, что вам понравится</string>
+    <string name="oblojka">Обложка</string>
+    <string name="pagesCount">Страниц: %1$s</string>
 </resources>
