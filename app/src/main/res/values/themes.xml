@@ -100,4 +100,24 @@
         <item name="android:layout_margin">@dimen/search_clear_icon_margin</item>
         <item name="tint">@color/gray</item>
     </style>
+    <style name="BookBaseTextView">
+        <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:textColor">@color/appBlack</item>
+    </style>
+
+    <style name="BookTitleTextView" parent="BookBaseTextView">
+        <item name="android:textSize">@dimen/book_title_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="BookAuthorTextView" parent="BookBaseTextView">
+        <item name="android:textSize">@dimen/book_author_text_size</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="BookPagesTextView" parent="BookBaseTextView">
+        <item name="android:textSize">@dimen/book_pages_text_size</item>
+    </style>
 </resources>

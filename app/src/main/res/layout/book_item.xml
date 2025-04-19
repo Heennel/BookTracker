@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/imageBook"
-        android:layout_width="80dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="@dimen/book_image_width"
+        android:layout_height="@dimen/book_image_height"
+        android:layout_marginTop="@dimen/default_margin_small"
         android:adjustViewBounds="true"
         android:contentDescription="@string/oblojka"
         android:scaleType="fitCenter"
@@ -19,16 +18,13 @@
 
     <TextView
         android:id="@+id/titleBook"
-        android:layout_width="wrap_content"
+        style="@style/BookTitleTextView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="@dimen/default_margin_small"
         android:ellipsize="end"
-        android:fontFamily="@font/opensans_regular"
-        android:maxLines="1"
-        android:text="A journey of imagination"
-        android:textColor="@color/appBlack"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageBook"
         app:layout_constraintTop_toTopOf="@+id/imageBook" />
 
@@ -36,11 +32,8 @@
         android:id="@+id/authorBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/opensans_regular"
-        android:text="Alexander Hayes"
-        android:textColor="@color/gray"
-        android:textSize="14sp"
+        style="@style/BookAuthorTextView"
+        android:layout_marginTop="@dimen/default_margin_xsmall"
         app:layout_constraintStart_toStartOf="@+id/titleBook"
         app:layout_constraintTop_toBottomOf="@+id/titleBook" />
 
@@ -48,10 +41,8 @@
         android:id="@+id/pagesBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/opensans_regular"
-        android:text="Страниц: 312"
-        android:layout_marginTop="4dp"
-        android:textColor="@color/appBlack"
+        style="@style/BookPagesTextView"
+        android:layout_marginTop="@dimen/default_margin_xsmall"
         app:layout_constraintStart_toStartOf="@+id/titleBook"
         app:layout_constraintTop_toBottomOf="@+id/authorBook" />
 

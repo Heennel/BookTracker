@@ -48,4 +48,12 @@
     <dimen name="search_edittext_text_size">16sp</dimen>
     <dimen name="search_placeholder_text_size">18sp</dimen>
 
+    <dimen name="book_image_width">80dp</dimen>
+    <dimen name="book_image_height">120dp</dimen>
+    <dimen name="default_margin_small">12dp</dimen>
+    <dimen name="default_margin_xsmall">4dp</dimen>
+    <dimen name="book_title_text_size">16sp</dimen>
+    <dimen name="book_author_text_size">14sp</dimen>
+    <dimen name="book_pages_text_size">14sp</dimen>
+
 </resources>
