@@ -1,7 +1,10 @@
 package com.example.booktracker.RecyclerView
 
+import android.util.TypedValue
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.example.booktracker.API.Book
 import com.example.booktracker.API.BookItem
 import com.example.booktracker.R
@@ -15,9 +18,16 @@ class BookHolder(private val binding: BookItemBinding): RecyclerView.ViewHolder(
         val pagesText = "Страниц: ${book.pageCount?:"неизвестно"}"
         binding.pagesBook.setText(pagesText)
 
+        val radiusInPx = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            4f,
+            binding.root.resources.displayMetrics
+        ).toInt()
+
         Glide.with(binding.root)
             .load(book.imageLinks?.maybeNormImage?.replace("http://", "https://"))
             .placeholder(R.drawable.ic_home_black_24dp)
+            .apply(RequestOptions.bitmapTransform(RoundedCorners(radiusInPx)))
             .into(binding.imageBook)
     }
 }
