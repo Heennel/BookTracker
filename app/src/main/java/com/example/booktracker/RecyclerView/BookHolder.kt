@@ -14,7 +14,7 @@ class BookHolder(private val binding: BookItemBinding): RecyclerView.ViewHolder(
 
     fun bind(book: Book) {
         binding.titleBook.text = book.title
-        binding.authorBook.text = book.authors?.joinToString()?:"автор неизвестен"
+        binding.authorBook.text = book.authors?.joinToString()?:"Fвтор неизвестен"
         val pagesText = "Страниц: ${book.pageCount?:"неизвестно"}"
         binding.pagesBook.setText(pagesText)
 
@@ -26,7 +26,7 @@ class BookHolder(private val binding: BookItemBinding): RecyclerView.ViewHolder(
 
         Glide.with(binding.root)
             .load(book.imageLinks?.maybeNormImage?.replace("http://", "https://"))
-            .placeholder(R.drawable.ic_home_black_24dp)
+            .placeholder(R.drawable.img_placeholder)
             .apply(RequestOptions.bitmapTransform(RoundedCorners(radiusInPx)))
             .into(binding.imageBook)
     }
