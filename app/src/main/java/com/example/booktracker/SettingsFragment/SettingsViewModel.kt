@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.example.booktracker.App
 
 class SettingsViewModel(
-    val sharedPref: SharedPreferences,
+    sharedPref: SharedPreferences,
     val app: App
 ): ViewModel() {
 
