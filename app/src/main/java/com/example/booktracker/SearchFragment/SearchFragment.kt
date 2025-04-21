@@ -1,4 +1,4 @@
-package com.example.booktracker
+package com.example.booktracker.SearchFragment
 
 import android.os.Bundle
 import android.text.Editable
@@ -83,6 +83,8 @@ class SearchFragment : Fragment() {
             override fun afterTextChanged(s: Editable?) {
                 if(s.toString().isNotBlank()){
                     trySend(s.toString())
+                }else{
+                    bookAdapter.refreshList(emptyList())
                 }
                 val isEmpty = s.isNullOrEmpty()
                 binding.fragmentSearchClearImg.visibility = if (isEmpty) View.INVISIBLE else View.VISIBLE
@@ -121,7 +123,6 @@ class SearchFragment : Fragment() {
         val resultList = result.items?.map { it.bookItem }?.toList()?: emptyList()
         bookAdapter.refreshList(resultList)
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

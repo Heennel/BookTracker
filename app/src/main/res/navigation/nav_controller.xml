@@ -13,12 +13,12 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.booktracker.SettingsFragment"
+        android:name="com.example.booktracker.SettingsFragment.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.booktracker.SearchFragment"
+        android:name="com.example.booktracker.SearchFragment.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search"
         />

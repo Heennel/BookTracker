@@ -1,5 +1,6 @@
-package com.example.booktracker
+package com.example.booktracker.SettingsFragment
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -7,8 +8,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity.MODE_PRIVATE
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.viewModels
+import com.example.booktracker.App
+import com.example.booktracker.R
 import com.example.booktracker.databinding.FragmentSettingsBinding
 
 
@@ -16,6 +19,11 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: SettingsViewModel by viewModels{
+        val sharedPrefs = requireContext().getSharedPreferences(APP_NAME, Context.MODE_PRIVATE)
+        SettingsViewModelFactory(sharedPrefs, (requireActivity().application as App))
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,18 +52,21 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             startActivity(shareIntent)
         }
 
+        viewModel.themeData.observe(viewLifecycleOwner){isDarkTheme ->
+            binding.switchMaterial.isChecked = isDarkTheme
+        }
+
         binding.switchMaterial.setOnCheckedChangeListener { buttonView, isChecked ->
-            val mode = if(isChecked){
-                AppCompatDelegate.MODE_NIGHT_YES
-            }else{
-                AppCompatDelegate.MODE_NIGHT_NO
-            }
-            AppCompatDelegate.setDefaultNightMode(mode)
+            viewModel.changeTheme(isChecked)
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object{
+        private const val APP_NAME = "Book Tracker"
     }
 }
