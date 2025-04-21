@@ -28,4 +28,6 @@
     <string name="search_startPlaceholder">Найдите то, что вам понравится</string>
     <string name="oblojka">Обложка</string>
     <string name="pagesCount">Страниц: %1$s</string>
+    <string name="not_found">Ничего не найдено!</string>
+    <string name="error">Проблемы с соединением…</string>
 </resources>

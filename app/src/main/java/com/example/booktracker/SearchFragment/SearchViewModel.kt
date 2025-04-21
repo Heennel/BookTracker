@@ -7,7 +7,6 @@ import com.example.booktracker.API.Book
 import com.example.booktracker.API.GoogleBooksApi
 import com.example.booktracker.API.RetrofitFactory
 import com.example.booktracker.APIЫ.BookResponse
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -24,55 +23,74 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import retrofit2.create
 
-class SearchViewModel(
-
-): ViewModel() {
+class SearchViewModel : ViewModel() {
 
     private var searchJob: Job? = null
-
     val bookApi = RetrofitFactory.createRetrofit().create<GoogleBooksApi>()
 
     private val _listRCView = MutableLiveData<List<Book>>(emptyList())
     val listRCView: MutableLiveData<List<Book>> get() = _listRCView
 
-    @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class)
-    fun searchEngine(flow: Flow<String>){
-        searchJob?.cancel()
+    private val _searchState = MutableLiveData<SearchState>(SearchState.NOTHING)
+    val searchState: MutableLiveData<SearchState> get() = _searchState
 
+    @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class)
+    fun searchEngine(flow: Flow<String>) {
+        searchJob?.cancel()
         searchJob = viewModelScope.launch {
             flow
-                .onEach {query ->
-                    if (query.isBlank()){
+                .onEach { query ->
+                    if (query.isBlank()) {
                         clearList()
+                        changeState(SearchState.NOTHING)
                     }
                 }
                 .debounce(300)
                 .filter { !it.isBlank() }
                 .distinctUntilChanged()
                 .flatMapLatest { query ->
-                    doRequest(query).catch { e ->
-                        clearList()
-                        emit(BookResponse(emptyList()))
-                    }
+                    doRequest(query)
+                        .catch { e ->
+                            changeState(SearchState.ERROR)
+                            clearList()
+                            emit(BookResponse(emptyList()))
+                        }
                 }
                 .flowOn(Dispatchers.IO)
-                .collect{ result ->
-                    updateUI(result)
+                .collect { result ->
+                    if (_searchState.value != SearchState.ERROR) {
+                        updateUI(result)
+                    }
                 }
         }
     }
 
-    fun doRequest(query: String): Flow<BookResponse> = flow {
-        val result = bookApi.getBooks(query)
-        emit(result)
+    private fun doRequest(query: String): Flow<BookResponse> = flow {
+        changeState(SearchState.LOADING)
+        try {
+            val result = bookApi.getBooks(query)
+            emit(result)
+        } catch (e: Exception) {
+            changeState(SearchState.ERROR)
+            throw e
+        }
     }
 
-    fun updateUI(result: BookResponse?){
+    private fun updateUI(result: BookResponse?) {
         val resultList = result?.items?.map { it.bookItem } ?: emptyList()
         _listRCView.postValue(resultList)
+
+        if (_searchState.value != SearchState.ERROR) {
+            val newState = if (resultList.isEmpty()) SearchState.NOT_FOUND else SearchState.SUCCESS
+            changeState(newState)
+        }
     }
 
-    private fun clearList(){
+    private fun clearList() {
         _listRCView.postValue(emptyList())
+    }
+
+    private fun changeState(state: SearchState) {
+        _searchState.postValue(state)
     }
 }

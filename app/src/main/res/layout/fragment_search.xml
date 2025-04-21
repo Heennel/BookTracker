@@ -75,5 +75,49 @@
         app:layout_constraintStart_toStartOf="@+id/leftBoarder"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/rightBoarder"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/leftBoarder"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <TextView
+        android:id="@+id/notFoundText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/not_found"
+        android:fontFamily="@font/opensans_regular"
+        android:textSize="20sp"
+        android:visibility="gone"
+        android:textColor="@color/appBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerBooks"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintVertical_bias="0.2" />
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="@string/error"
+        android:fontFamily="@font/opensans_regular"
+        android:textSize="20sp"
+        android:textColor="@color/appBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerBooks"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintVertical_bias="0.2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

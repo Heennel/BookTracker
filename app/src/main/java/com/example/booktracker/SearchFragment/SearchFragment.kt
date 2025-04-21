@@ -21,6 +21,8 @@ class SearchFragment : Fragment() {
     private val bookAdapter = BookAdapter()
     private val viewModel: SearchViewModel by viewModels()
 
+    private var searchState = SearchState.NOTHING
+
     private var textWatcher: TextWatcher? = null
     private var watcherFlow: Flow<String>? = null
 
@@ -43,6 +45,11 @@ class SearchFragment : Fragment() {
 
         viewModel.listRCView.observe(viewLifecycleOwner) {
             bookAdapter.refreshList(it)
+        }
+
+        viewModel.searchState.observe(viewLifecycleOwner){
+            searchState = it
+            changeState()
         }
     }
 
@@ -88,6 +95,41 @@ class SearchFragment : Fragment() {
                 }
             }
             textWatcher = null
+        }
+    }
+
+    private fun changeState(){
+        when(searchState){
+            SearchState.LOADING->{
+                binding.progressBar.visibility = View.VISIBLE
+                binding.recyclerBooks.visibility = View.GONE
+                binding.notFoundText.visibility = View.GONE
+                binding.errorText.visibility = View.GONE
+            }
+            SearchState.SUCCESS->{
+                binding.recyclerBooks.visibility = View.VISIBLE
+                binding.progressBar.visibility = View.GONE
+                binding.notFoundText.visibility = View.GONE
+                binding.errorText.visibility = View.GONE
+            }
+            SearchState.NOTHING -> {
+                binding.recyclerBooks.visibility = View.VISIBLE
+                binding.progressBar.visibility = View.GONE
+                binding.notFoundText.visibility = View.GONE
+                binding.errorText.visibility = View.GONE
+            }
+            SearchState.NOT_FOUND ->{
+                binding.recyclerBooks.visibility = View.GONE
+                binding.progressBar.visibility = View.GONE
+                binding.notFoundText.visibility = View.VISIBLE
+                binding.errorText.visibility = View.GONE
+            }
+            SearchState.ERROR ->{
+                binding.recyclerBooks.visibility = View.GONE
+                binding.progressBar.visibility = View.GONE
+                binding.notFoundText.visibility = View.GONE
+                binding.errorText.visibility = View.VISIBLE
+            }
         }
     }
 
