@@ -3,7 +3,11 @@ package com.example.booktracker
 import android.app.Application
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatDelegate
+import dagger.hilt.EntryPoint
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class App: Application() {
 
     private val sharedPref: SharedPreferences by lazy { getSharedPreferences(APP_NAME, MODE_PRIVATE) }

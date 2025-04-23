@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -39,6 +41,14 @@ android {
 }
 
 dependencies {
+
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+
+    implementation(libs.androidx.hilt.navigation.compose)
+    // ИЛИ для Fragment:
+    implementation(libs.androidx.hilt.navigation.fragment)
+
     implementation(libs.androidx.lifecycle.viewmodel.ktx.v262)
     implementation(libs.androidx.fragment.ktx.v161)
     implementation(libs.androidx.lifecycle.livedata.ktx.v262)

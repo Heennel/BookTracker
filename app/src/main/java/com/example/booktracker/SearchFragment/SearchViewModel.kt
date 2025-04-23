@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.booktracker.API.Book
 import com.example.booktracker.API.GoogleBooksApi
-import com.example.booktracker.API.RetrofitFactory
 import com.example.booktracker.APIЫ.BookResponse
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -22,11 +22,14 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import retrofit2.create
+import javax.inject.Inject
 
-class SearchViewModel : ViewModel() {
+@HiltViewModel
+class SearchViewModel @Inject constructor(
+    val bookApi: GoogleBooksApi
+) : ViewModel() {
 
     private var searchJob: Job? = null
-    val bookApi = RetrofitFactory.createRetrofit().create<GoogleBooksApi>()
 
     private val _listRCView = MutableLiveData<List<Book>>(emptyList())
     val listRCView: MutableLiveData<List<Book>> get() = _listRCView

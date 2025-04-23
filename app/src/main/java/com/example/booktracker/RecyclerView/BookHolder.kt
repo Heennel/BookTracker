@@ -14,7 +14,7 @@ class BookHolder(private val binding: BookItemBinding): RecyclerView.ViewHolder(
 
     fun bind(book: Book) {
         binding.titleBook.text = book.title
-        binding.authorBook.text = book.authors?.joinToString()?:"Fвтор неизвестен"
+        binding.authorBook.text = book.authors?.joinToString()?:"Автор неизвестен"
         val pagesText = "Страниц: ${book.pageCount?:"неизвестно"}"
         binding.pagesBook.setText(pagesText)
 
