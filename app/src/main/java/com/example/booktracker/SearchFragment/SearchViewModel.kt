@@ -1,5 +1,6 @@
 package com.example.booktracker.SearchFragment
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -54,6 +55,7 @@ class SearchViewModel @Inject constructor(
                 .flatMapLatest { query ->
                     doRequest(query)
                         .catch { e ->
+                            Log.d("2","ОШИБКА - ${e.message}")
                             changeState(SearchState.ERROR)
                             clearList()
                             emit(BookResponse(emptyList()))
@@ -71,11 +73,11 @@ class SearchViewModel @Inject constructor(
     private fun doRequest(query: String): Flow<BookResponse> = flow {
         changeState(SearchState.LOADING)
         try {
-            val result = bookApi.getBooks(query)
+            val result = bookApi.getBooks(query, API_KEY)
             emit(result)
         } catch (e: Exception) {
+            Log.d("1","АШИПКА - ${e.message}")
             changeState(SearchState.ERROR)
-            throw e
         }
     }
 
@@ -95,5 +97,9 @@ class SearchViewModel @Inject constructor(
 
     private fun changeState(state: SearchState) {
         _searchState.postValue(state)
+    }
+
+    companion object{
+        private const val API_KEY = "AIzaSyDLEeZxBnsGuDGjXt7ta8NgnmMc-Nt665I"
     }
 }

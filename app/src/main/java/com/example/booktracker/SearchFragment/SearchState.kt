@@ -1,9 +1,9 @@
 package com.example.booktracker.SearchFragment
 
 enum class SearchState {
+    NOTHING,
     LOADING,
-    SUCCESS,
     NOT_FOUND,
     ERROR,
-    NOTHING
+    SUCCESS
 }
