@@ -30,4 +30,5 @@
     <string name="pagesCount">Страниц: %1$s</string>
     <string name="not_found">Ничего не найдено!</string>
     <string name="error">Проблемы с соединением…</string>
+    <string name="arrowback">arrowBack</string>
 </resources>

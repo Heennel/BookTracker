@@ -13,6 +13,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -38,11 +40,18 @@ class SearchViewModel @Inject constructor(
     private val _searchState = MutableLiveData<SearchState>(SearchState.NOTHING)
     val searchState: MutableLiveData<SearchState> get() = _searchState
 
+    private val _searchQuery = MutableStateFlow<String>("")
+    val searchQuery: StateFlow<String> get() = _searchQuery
+
+    init {
+        searchEngine()
+    }
+
     @OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class)
-    fun searchEngine(flow: Flow<String>) {
+    fun searchEngine() {
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
-            flow
+            searchQuery
                 .onEach { query ->
                     if (query.isBlank()) {
                         clearList()
@@ -50,8 +59,8 @@ class SearchViewModel @Inject constructor(
                     }
                 }
                 .debounce(300)
-                .filter { !it.isBlank() }
                 .distinctUntilChanged()
+                .filter { !it.isBlank() }
                 .flatMapLatest { query ->
                     doRequest(query)
                         .catch { e ->
@@ -97,6 +106,10 @@ class SearchViewModel @Inject constructor(
 
     private fun changeState(state: SearchState) {
         _searchState.postValue(state)
+    }
+
+    fun updateSearch(query: String){
+        _searchQuery.value = query
     }
 
     companion object{
