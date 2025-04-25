@@ -54,6 +54,18 @@
         <item name="android:padding">@dimen/settingsFragment_button_padding</item>
     </style>
 
+    <style name="BookFront">
+        <item name="android:layout_width">@dimen/bookfront_size</item>
+        <item name="android:layout_height">@dimen/bookfront_size</item>
+        <item name="android:padding">@dimen/bookfront_padding</item>
+        <item name="iconSize">@dimen/bookfront_icon_size</item>
+        <item name="strokeWidth">@dimen/settingsFragment_stroke_width</item>
+        <item name="cornerRadius">@dimen/settingsFragment_corner_radius</item>
+        <item name="strokeColor">@color/appBlack</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="iconTint">@color/appBlack</item>
+    </style>
+
     <style name="SettingsSwitchMaterial">
         <item name="thumbTint">@color/gray</item>
         <item name="trackTint">@color/lightGray</item>
@@ -100,6 +112,7 @@
         <item name="android:layout_margin">@dimen/search_clear_icon_margin</item>
         <item name="tint">@color/gray</item>
     </style>
+
     <style name="BookBaseTextView">
         <item name="android:fontFamily">@font/opensans_regular</item>
         <item name="android:textColor">@color/appBlack</item>
@@ -130,4 +143,40 @@
     <style name="IndeterminateProgressBar">
         <item name="android:indeterminateTint">@color/appBlack</item>
     </style>
+
+    <style name="BookFrontTitle">
+        <item name="android:textSize">@dimen/book_title_text_size</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="BookFrontSubtitle">
+        <item name="android:textSize">@dimen/book_author_text_size</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="BookFrontDateText">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="BookFrontSectionTitle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/appBlack</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+    </style>
+
+    <style name="BookFrontParagraph">
+        <item name="android:textSize">@dimen/search_edittext_text_size</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:textColor">@color/appBlack</item>
+        <item name="android:gravity">start</item>
+    </style>
+
+    <style name="BookFrontGreetingText">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
 </resources>

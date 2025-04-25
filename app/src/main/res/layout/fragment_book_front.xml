@@ -28,9 +28,119 @@
         android:id="@+id/arrowBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:contentDescription="@string/arrowback"
         android:src="@drawable/bookfonr_arrow_back_img"
         app:layout_constraintStart_toStartOf="@+id/leftBoarder"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/BookFrontGreetingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="Привет"
+        app:layout_constraintEnd_toStartOf="@+id/rightBoarder"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toEndOf="@+id/arrowBack"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="@dimen/bookfront_margin_horizontal"
+        android:src="@drawable/ic_home_black_24dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintDimensionRatio="1:1.5"
+        app:layout_constraintEnd_toStartOf="@+id/rightBoarder"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/leftBoarder"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/BookFrontSectionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/bookfront_text_margin_top"
+        android:text="Привет"
+        app:layout_constraintStart_toStartOf="@+id/leftBoarder"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/BookFrontSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/bookfront_small_text_margin_top"
+        android:text="Какойто"
+        app:layout_constraintStart_toStartOf="@+id/leftBoarder"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        style="@style/BookFrontDateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20.04.1998"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toStartOf="@+id/rightBoarder"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView7"
+        style="@style/BookFrontSectionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="О чем книга?"
+        app:layout_constraintEnd_toStartOf="@+id/rightBoarder"
+        app:layout_constraintStart_toStartOf="@+id/leftBoarder"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView6"
+        style="@style/BookFrontParagraph"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="Caring for Cut Flowers shows florists and growers how to make cut flowers last longer. While proper postharvest techniques will not magically transform poor quality flowers into first class material, a few basic, inexpensive techniques can maximise the vase life of good quality material."
+        app:layout_constraintEnd_toStartOf="@+id/rightBoarder"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/leftBoarder"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/imageButton"
+        style="@style/BookFront"
+        app:icon="@drawable/library_fragment_readed_img"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/leftBoarder" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/imageButton2"
+        style="@style/BookFront"
+        app:icon="@drawable/library_fragment_saved_img"
+        android:src="@drawable/library_fragment_saved_img"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/imageButton3"
+        style="@style/BookFront"
+        app:icon="@drawable/library_fragment_favorite_img"
+        android:src="@drawable/library_fragment_favorite_img"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
+        app:layout_constraintEnd_toStartOf="@+id/rightBoarder"
+        app:layout_constraintStart_toEndOf="@+id/imageButton2" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

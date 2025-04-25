@@ -6,7 +6,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Book(
     @SerialName("title") val title: String? = "",
-    @SerialName("subtitle") val subTitle: String? = "",
     @SerialName("authors") val authors: List<String>? = emptyList(),
     @SerialName("publishedDate") val publishedDate: String? = "",
     @SerialName("description") val description: String? = "",
