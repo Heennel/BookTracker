@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
+    kotlin("plugin.serialization") version "2.1.20"
 }
 
 android {
@@ -39,6 +42,17 @@ android {
 }
 
 dependencies {
+    implementation(libs.retrofit2.kotlinx.serialization.converter)
+    implementation(libs.logging.interceptor)
+    implementation(libs.okhttp)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.hilt.navigation.fragment)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx.v262)
+    implementation(libs.androidx.fragment.ktx.v161)
+    implementation(libs.androidx.lifecycle.livedata.ktx.v262)
     implementation (libs.material.v161)
     implementation(libs.glide)
     annotationProcessor (libs.compiler)

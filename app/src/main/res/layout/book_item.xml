@@ -30,10 +30,13 @@
 
     <TextView
         android:id="@+id/authorBook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         style="@style/BookAuthorTextView"
+        android:layout_width="0dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_margin_xsmall"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/titleBook"
         app:layout_constraintTop_toBottomOf="@+id/titleBook" />
 
@@ -41,6 +44,8 @@
         android:id="@+id/pagesBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
         style="@style/BookPagesTextView"
         android:layout_marginTop="@dimen/default_margin_xsmall"
         app:layout_constraintStart_toStartOf="@+id/titleBook"

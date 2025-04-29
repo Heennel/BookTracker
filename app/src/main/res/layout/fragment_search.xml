@@ -4,9 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:background="?attr/colorPrimary"
-    tools:context=".SearchFragment">
+    tools:context=".SearchFragment.SearchFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/leftBoarder"
@@ -67,6 +66,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerBooks"
+        android:clipToPadding="false"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="12dp"
@@ -74,6 +74,46 @@
         app:layout_constraintEnd_toStartOf="@+id/rightBoarder"
         app:layout_constraintStart_toStartOf="@+id/leftBoarder"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        style="@style/IndeterminateProgressBar"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/rightBoarder"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/leftBoarder"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <TextView
+        android:id="@+id/notFoundText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/not_found"
+        style="@style/SearchRegularText"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerBooks"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintVertical_bias="0.2" />
+    <TextView
+        android:id="@+id/errorText"
+        style="@style/SearchRegularText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="@string/error"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerBooks"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintVertical_bias="0.2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

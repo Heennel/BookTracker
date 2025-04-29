@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:background="?attr/colorPrimary"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fitsSystemWindows="true"
-    tools:context=".SettingsFragment">
+    tools:context=".SettingsFragment.SettingsFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/leftBoarder"

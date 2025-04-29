@@ -1,8 +1,10 @@
 package com.example.booktracker.API
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class ImageLinks(
-    @SerializedName("smallThumbnail") val badImage: String,
-    @SerializedName("thumbnail") val maybeNormImage: String
+    @SerialName("smallThumbnail") val badImage: String? = "",
+    @SerialName("thumbnail") val maybeNormImage: String? = ""
 )

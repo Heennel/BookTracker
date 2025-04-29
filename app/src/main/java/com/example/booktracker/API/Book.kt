@@ -1,13 +1,14 @@
 package com.example.booktracker.API
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Book(
-    @SerializedName("title") val title: String?,
-    @SerializedName("subtitle") val subTitle: String?,
-    @SerializedName("authors") val authors: List<String>?,
-    @SerializedName("publishedDate") val publishedDate: String?,
-    @SerializedName("description") val descriptor: String?,
-    @SerializedName("imageLinks") val imageLinks: ImageLinks?,
-    @SerializedName("pageCount") val pageCount: String?
+    @SerialName("title") val title: String? = "",
+    @SerialName("authors") val authors: List<String>? = emptyList(),
+    @SerialName("publishedDate") val publishedDate: String? = "",
+    @SerialName("description") val description: String? = "",
+    @SerialName("imageLinks") val imageLinks: ImageLinks? = ImageLinks(),
+    @SerialName("pageCount") val pageCount: Int? = 0
 )
